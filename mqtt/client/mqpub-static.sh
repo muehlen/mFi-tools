@@ -5,7 +5,7 @@ $PUBBIN -h $mqtthost $auth -t $topic/\$name -m "$devicename" -r
 $PUBBIN -h $mqtthost $auth -t $topic/\$fw/version -m "$version" -r
 
 # identify mFi device
-export mFiType=`cat /etc/board.inc | grep board_name | sed -e 's/.*="\(.*\)";/\1/'`
+export mFiType=`cat /etc/board.inc | grep board_name | sed -e 's/.*="\(.*\)";/\1/' | cut -d" " -f1`
 
 $PUBBIN -h $mqtthost $auth -t $topic/\$fw/name -m "mFi MQTT" -r
 

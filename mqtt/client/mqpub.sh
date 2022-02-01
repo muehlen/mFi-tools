@@ -9,7 +9,7 @@ source $BIN_PATH/client/mpower-pub.cfg
 export PUBBIN=$BIN_PATH/mosquitto_pub
 
 # identify mFi device
-export mFiType=`cat /etc/board.inc | grep board_name | sed -e 's/.*="\(.*\)";/\1/'`
+export mFiType=`cat /etc/board.inc | grep board_name | sed -e 's/.*="\(.*\)";/\1/' | cut -d" " -f1`
 
 log "mFi Type: $mFiType."
 
